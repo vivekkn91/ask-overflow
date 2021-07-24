@@ -4,7 +4,12 @@ export default class Question extends Component {
   render() {
     return (
       <div>
-        <Alert>
+        <Alert className="Question-even">
+          This is a alert with
+          <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
+          you like.
+        </Alert>
+        <Alert className="Question-odd">
           This is a alert with
           <Alert.Link href="#">an example link</Alert.Link>. Give it a click if
           you like.

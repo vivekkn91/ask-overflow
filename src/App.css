@@ -2,10 +2,20 @@
   color: aliceblue;
 }
 .mb-3 {
-  border-radius: 50px;
+  border-radius: 5px;
   background: #e0e0e0;
   box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 .search-box {
   margin-top: 5%;
+}
+.Question-even {
+  color: #000000;
+  background-color: #e5d549;
+  border-color: #e5d549;
+}
+.Question-odd {
+  color: #ffffff;
+  background-color: #1768ac;
+  border-color: #1768ac;
 }
