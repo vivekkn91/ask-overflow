@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
+import Query from "./Query";
 import Question from "./Question";
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
@@ -20,19 +21,20 @@ export default class Home extends Component {
     e.preventDefault();
     let arrayForQuestion = this.state.questionarray;
     let variableQuestion = this.state.question;
-    arrayForQuestion.push(variableQuestion);
-    this.setState({ arrayForQuestion: variableQuestion });
 
+    this.setState({ arrayForQuestion: variableQuestion });
+    var data = variableQuestion;
+    console.log(data);
     axios
-      .post("http://localhost:7000", variableQuestion, {
-        headers: {
-          "Content-Type": "text/plain",
-          "Access-Control-Allow-Origin": true,
-        },
+      .post("http://localhost:5002/questionpost", {
+        Name: data,
+        // Age: "23",
       })
-      .then((response) => {
-        console.log(response);
+      .then(function (response) {
+        console.log(data);
       });
+
+    window.location.reload();
   };
 
   render() {
@@ -54,11 +56,7 @@ export default class Home extends Component {
             ask?
           </Button>
         </InputGroup>
-        <Question />
-        <Question />
-        <Question />
-        <Question />
-        <Question />
+        <Question myProp={this.state.items} />
       </div>
     );
   }
