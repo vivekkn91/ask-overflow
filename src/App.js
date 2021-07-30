@@ -36,9 +36,12 @@ function App() {
           <Route path="/Service">
             <Service />
           </Route>
-          <Route path="/Query">
-            <Query />
-          </Route>
+          <Route
+            exact
+            path="/Query/:catId"
+            render={(props) => <Query {...props} />}
+          />
+
           <Route path="/Home">
             <Home />
           </Route>

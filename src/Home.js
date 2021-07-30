@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import InputGroup from "react-bootstrap/InputGroup";
 import Query from "./Query";
 import Question from "./Question";
+
 import axios from "axios";
 import { FormControl, Button } from "react-bootstrap";
 
@@ -30,11 +31,13 @@ export default class Home extends Component {
         Name: data,
         // Age: "23",
       })
-      .then(function (response) {
-        console.log(data);
+      .then((response) => {
+        // this.props.handleSuccessfullFormSubmission(response.data);
+        window.location.reload();
+      })
+      .catch((error) => {
+        console.log("handlesubmit error for blog ", error);
       });
-
-    window.location.reload();
   };
 
   render() {
@@ -56,6 +59,7 @@ export default class Home extends Component {
             ask?
           </Button>
         </InputGroup>
+
         <Question myProp={this.state.items} />
       </div>
     );

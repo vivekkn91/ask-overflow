@@ -14,7 +14,7 @@
   background-color: #e5d549;
   border-color: #e5d549;
 }
-.Question-odd {
+.Question-even:nth-child(even) {
   color: #ffffff;
   background-color: #1768ac;
   border-color: #1768ac;

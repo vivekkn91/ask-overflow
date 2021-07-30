@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Alert from "react-bootstrap/Alert";
 import Query from "./Query";
-
+import { Link } from "react-router-dom";
 import axios from "axios";
 export default class Question extends Component {
   constructor(props) {
@@ -13,7 +13,7 @@ export default class Question extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:5002/questapi").then((result) => {
-      //console.table(result.data);
+      console.table(result.data);
       this.setState({ items: result.data });
     });
   }
@@ -23,9 +23,16 @@ export default class Question extends Component {
       <>
         {this.state.items.map((itm, k) => {
           return (
-            <>
-              <Alert className="Question-even">{itm.Name}</Alert>
-            </>
+            <div className="Question-even">
+              <Link
+                to={{
+                  pathname: `query/${itm._id}`,
+                  query: { id: itm._id },
+                }}
+              >
+                <Alert>{itm.Name}</Alert>
+              </Link>
+            </div>
           );
         })}
       </>
