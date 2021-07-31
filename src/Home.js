@@ -17,6 +17,7 @@ export default class Home extends Component {
 
   question = (e) => {
     this.setState({ question: e.target.value });
+    this.setState({ ask: e.target.value });
   };
   clickQuestion = (e) => {
     e.preventDefault();
@@ -25,14 +26,14 @@ export default class Home extends Component {
 
     this.setState({ arrayForQuestion: variableQuestion });
     var data = variableQuestion;
-    console.log(data);
+    // console.log(data);
     axios
       .post("http://localhost:5002/questionpost", {
         Name: data,
+
         // Age: "23",
       })
-      .then((response) => {
-        // this.props.handleSuccessfullFormSubmission(response.data);
+      .then(() => {
         window.location.reload();
       })
       .catch((error) => {
@@ -43,7 +44,11 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container search-box">
-        <InputGroup className="mb-3" onChange={this.question}>
+        <InputGroup
+          className="mb-3"
+          onChange={this.question}
+          value={this.state.ask}
+        >
           <FormControl
             placeholder="ask anything?"
             aria-label="ask anything?"
@@ -52,6 +57,7 @@ export default class Home extends Component {
           />
           <Button
             type="submit"
+            disabled={!this.state.ask}
             onClick={this.clickQuestion}
             variant="outline-secondary"
             id="button-addon2"
