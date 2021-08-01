@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Query.css";
-
+import Answers from "./Answers";
 import axios from "axios";
 export default class Query extends Component {
   constructor(props) {
@@ -32,6 +32,8 @@ export default class Query extends Component {
             );
           })}
         </>
+
+        <Answers />
       </>
     );
   }

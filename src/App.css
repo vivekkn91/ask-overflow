@@ -30,3 +30,35 @@
 a {
   text-decoration: none;
 }
+
+.card-body {
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  width: 80%;
+  padding: 2rem 1rem !important;
+  margin: 5%;
+}
+.card {
+  flex-direction: row !important;
+  background-color: #e0e0e0 !important;
+}
+.correct {
+  width: 100px;
+  height: 100px;
+  margin-top: 100px;
+  position: relative;
+  right: 4%;
+  bottom: 9%;
+}
+.wrong {
+  width: 100px;
+  height: 100px;
+  background-color: brown !important;
+  border-color: brown !important;
+  margin-top: 100px;
+  position: relative;
+  right: 4%;
+  margin-left: 30px;
+  bottom: 9%;
+}
