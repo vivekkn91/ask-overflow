@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Alert from "react-bootstrap/Alert";
-import Query from "./Query";
+//import Query from "./Query";
 import { Link } from "react-router-dom";
 import axios from "axios";
 export default class Question extends Component {
@@ -13,7 +13,7 @@ export default class Question extends Component {
 
   componentDidMount() {
     axios.get("http://localhost:5002/questapi").then((result) => {
-      console.table(result.data);
+      // console.table(result.data);
       this.setState({ items: result.data });
     });
   }
