@@ -10,31 +10,36 @@ export default function Answershooks() {
   const params = useParams();
 
   var gotid = params;
+  gotid = gotid.catId;
   console.log(gotid);
   useEffect(() => {
-    axios
-      .get("http://localhost:5002/answersapi", {
-        params: {
-          id: gotid,
-        },
-      })
-      .then((result) => {
-        //  console.table(result.data);
-        setPosts({ items: result.data });
+    axios.get("http://localhost:5002/answersapi/" + gotid).then((result) => {
+      console.table(result.data);
+      var somevariable = result;
+
+      setPosts((data) => {
+        return [...data, somevariable];
       });
+
+      setPosts(result.data);
+    });
   }, []);
 
   return (
     <div>
-      <Card>
-        <Card.Body>This is some text within a card body.</Card.Body>
-        <Button className="correct" variant="primary">
-          Correct
-        </Button>
-        <Button className="wrong" variant="primary">
-          Wrong
-        </Button>
-      </Card>
+      {posts.map((personData, index) => {
+        return (
+          <Card key={index}>
+            <Card.Body>{personData.Answers}</Card.Body>
+            <Button className="correct" variant="primary">
+              Correct
+            </Button>
+            <Button className="wrong" variant="primary">
+              Wrong
+            </Button>
+          </Card>
+        );
+      })}
     </div>
   );
 }
