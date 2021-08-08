@@ -41,7 +41,8 @@ export default class Query extends Component {
     axios
       .post("http://localhost:5002/answerpost", {
         Answers: variableQuestion,
-
+        correctcount: 0,
+        wrongcount: 0,
         question_id: gotid,
       })
       .then(() => {
