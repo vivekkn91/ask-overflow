@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 export default function Answershooks() {
   const [posts, setPosts] = useState([]);
   const [increment, setincrement] = useState(0);
-  const [decrement, setdecrement] = useState(0);
+  //const [decrement, setdecrement] = useState(0);
   const params = useParams();
 
   var gotid = params;
@@ -51,7 +51,8 @@ export default function Answershooks() {
         Answer_id: props._id,
         correctcount: props.correctcount,
       })
-      .then(() => {
+      .then((res) => {
+        // setincrement([...increment,res.data])
         window.location.reload();
       })
       .catch((error) => {

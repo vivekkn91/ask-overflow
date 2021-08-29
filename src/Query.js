@@ -32,7 +32,7 @@ export default class Query extends Component {
   clickQuestion = (e) => {
     var gotid = this.props.match.params.catId;
     e.preventDefault();
-    let arrayForQuestion = this.state.questionarray;
+  //  let arrayForQuestion = this.state.questionarray;
     let variableQuestion = this.state.question;
 
     this.setState({ arrayForQuestion: variableQuestion });
@@ -46,7 +46,7 @@ export default class Query extends Component {
         question_id: gotid,
       })
       .then(() => {
-        window.location.reload();
+       window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
