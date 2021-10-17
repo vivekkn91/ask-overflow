@@ -28,7 +28,7 @@ export default class Home extends Component {
     var data = variableQuestion;
     // console.log(data);
     axios
-      .post("http://localhost:5002/questionpost", {
+      .post("https://ask-over.herokuapp.com/questionpost", {
         Name: data,
 
         // Age: "23",

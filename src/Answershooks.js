@@ -15,22 +15,24 @@ export default function Answershooks() {
   gotid = gotid.catId;
   // console.log(gotid);
   useEffect(() => {
-    axios.get("http://localhost:5002/answersapi/" + gotid).then((result) => {
-      console.table(result.data);
-      var somevariable = result;
+    axios
+      .get("https://ask-over.herokuapp.com/answersapi/" + gotid)
+      .then((result) => {
+        console.table(result.data);
+        var somevariable = result;
 
-      setPosts((data) => {
-        return [...data, somevariable];
+        setPosts((data) => {
+          return [...data, somevariable];
+        });
+
+        setPosts(result.data);
       });
-
-      setPosts(result.data);
-    });
   }, []);
 
   function decrementCounter(props) {
     console.log("thsis", props);
     axios
-      .post("http://localhost:5002/decrementer", {
+      .post("https://ask-over.herokuapp.com/decrementer", {
         //Answers: props,
         Answer_id: props._id,
         wrongcount: props.wrongcount,

@@ -16,10 +16,12 @@ export default class Answers extends Component {
     var gotid = this.props.match.params.catId;
     //const params = useParams();
     //  console.log(params);
-    axios.get("http://localhost:5002/answersapi" + gotid).then((result) => {
-      console.table(result.data);
-      this.setState({ items: result.data });
-    });
+    axios
+      .get("https://ask-over.herokuapp.com/answersapi" + gotid)
+      .then((result) => {
+        console.table(result.data);
+        this.setState({ items: result.data });
+      });
   }
 
   render() {

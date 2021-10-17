@@ -12,7 +12,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:5002/questapi").then((result) => {
+    axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
       // console.table(result.data);
       this.setState({ items: result.data });
     });
