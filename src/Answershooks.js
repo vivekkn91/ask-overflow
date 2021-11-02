@@ -18,7 +18,7 @@ export default function Answershooks() {
     axios
       .get("https://ask-over.herokuapp.com/answersapi/" + gotid)
       .then((result) => {
-        console.table(result.data);
+        // console.table(result.data);
         var somevariable = result;
 
         setPosts((data) => {
@@ -38,7 +38,7 @@ export default function Answershooks() {
         wrongcount: props.wrongcount,
       })
       .then(() => {
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
@@ -48,14 +48,14 @@ export default function Answershooks() {
   function incrementCounter(props) {
     console.log("thsis", props);
     axios
-      .post("http://localhost:5002/increment", {
+      .post("https://ask-over.herokuapp.com/increment", {
         //Answers: props,
         Answer_id: props._id,
         correctcount: props.correctcount,
       })
       .then((res) => {
         // setincrement([...increment,res.data])
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);

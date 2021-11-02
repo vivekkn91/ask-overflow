@@ -41,14 +41,14 @@ export default class Query extends Component {
     //var data = variableQuestion;
     //  console.log(data);
     axios
-      .post("http://localhost:5002/answerpost", {
+      .post("https://ask-over.herokuapp.com/answerpost", {
         Answers: variableQuestion,
         correctcount: 0,
         wrongcount: 0,
         question_id: gotid,
       })
       .then(() => {
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
