@@ -3,6 +3,7 @@ import Alert from "react-bootstrap/Alert";
 //import Query from "./Query";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Signin from "./signin";
 export default class Question extends Component {
   constructor(props) {
     super(props);
