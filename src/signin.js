@@ -8,7 +8,7 @@ const SignIn = () => {
       .auth()
       .signInWithPopup(google_provider)
       .then((res) => {
-        console.log(res);
+        console.log(res.user.displayName);
       })
       .catch((err) => console.log(err));
   };

@@ -9,8 +9,10 @@ import { FormControl, Button } from "react-bootstrap";
 export default class Home extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       question: "",
+      signer: true,
       questionarray: [],
     };
   }
@@ -44,28 +46,30 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container search-box">
-        <InputGroup
-          className="mb-3"
-          onChange={this.question}
-          value={this.state.ask}
-        >
-          <FormControl
-            placeholder="ask anything?"
-            aria-label="ask anything?"
-            aria-label="ask anything?"
-            aria-describedby="basic-addon2"
-          />
-          <Button
-            type="submit"
-            disabled={!this.state.ask}
-            onClick={this.clickQuestion}
-            variant="outline-secondary"
-            id="button-addon2"
+        {console.log(this.state.signer)}
+        {this.state.signer ? (
+          <InputGroup
+            className="mb-3"
+            onChange={this.question}
+            value={this.state.ask}
           >
-            ask?
-          </Button>
-        </InputGroup>
-
+            <FormControl
+              placeholder="ask anything?"
+              aria-label="ask anything?"
+              aria-label="ask anything?"
+              aria-describedby="basic-addon2"
+            />
+            <Button
+              type="submit"
+              disabled={!this.state.ask}
+              onClick={this.clickQuestion}
+              variant="outline-secondary"
+              id="button-addon2"
+            >
+              ask?
+            </Button>
+          </InputGroup>
+        ) : null}
         <Question myProp={this.state.items} />
       </div>
     );

@@ -13,16 +13,17 @@
   margin-top: 5%;
   margin-bottom: 5rem !important;
 }
-.Question-even {
-  color: #000000 !important;
-  background-color: #e5d549;
-  border-color: #e5d549;
-}
-.Question-even:nth-child(even) {
+.question13:nth-of-type(even) {
   color: #ffffff !important;
   background-color: #1768ac;
   border-color: #1768ac;
 }
+.question13:nth-of-type(odd) {
+  color: #000000 !important;
+  background-color: #e5d549;
+  border-color: #e5d549 !important;
+}
+
 .fade.alert.show {
   text-decoration: none;
   color: black;

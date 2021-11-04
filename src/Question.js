@@ -31,7 +31,7 @@ export default class Question extends Component {
                   query: { id: itm._id },
                 }}
               >
-                <Alert>{itm.Name}</Alert>
+                <Alert className="question13"> {itm.Name}</Alert>
               </Link>
             </div>
           );
