@@ -47,10 +47,10 @@ a {
 .correct {
   width: 100px;
   height: 100px;
-  margin-top: 100px;
+  margin: auto;
+  /* margin-top: 100px; */
   position: relative;
-  right: 4%;
-  bottom: 9%;
+  right: 1%;
 }
 .wrong {
   width: 100px;
@@ -59,7 +59,9 @@ a {
   border-color: brown !important;
   margin-top: 100px;
   position: relative;
-  right: 4%;
+  margin: auto;
+  padding: 5%;
+  /* right: 4%;
   margin-left: 30px;
-  bottom: 9%;
+  bottom: 9%; */
 }

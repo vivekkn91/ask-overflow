@@ -74,9 +74,9 @@ export default class Query extends Component {
             value={this.state.ask}
           >
             <FormControl
-              placeholder="ask anything?"
-              aria-label="ask anything?"
-              aria-label="ask anything?"
+              placeholder="answer this question"
+              aria-label="answer this question"
+              aria-label="answer this question"
               aria-describedby="basic-addon2"
             />
             <Button
