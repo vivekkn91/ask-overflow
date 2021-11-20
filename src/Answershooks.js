@@ -67,23 +67,25 @@ export default function Answershooks() {
     <div>
       {posts.map((personData, index) => {
         return (
-          <Card key={index}>
+          <Card key={index} className="cardmobile">
             <Card.Body>{personData.Answers}</Card.Body>
-            <Button
-              onClick={() => incrementCounter(personData)}
-              className="correct"
-              variant="primary"
-            >
-              Correct {personData.correctcount}
-            </Button>
-            <Button
-              onClick={() => decrementCounter(personData)}
-              //onClick={decrementCounter}
-              className="wrong"
-              variant="primary"
-            >
-              Wrong {personData.wrongcount}
-            </Button>
+            <div className="buttontwo">
+              <Button
+                onClick={() => incrementCounter(personData)}
+                className="correct"
+                variant="primary"
+              >
+                Correct {personData.correctcount}
+              </Button>
+              <Button
+                onClick={() => decrementCounter(personData)}
+                //onClick={decrementCounter}
+                className="wrong"
+                variant="primary"
+              >
+                Wrong {personData.wrongcount}
+              </Button>
+            </div>
           </Card>
         );
       })}

@@ -66,7 +66,7 @@ function App() {
                 signout
               </button>
             ) : (
-              <Signin />
+              <Signin className="googlebutton" />
             )}
           </Container>
         </Navbar>
