@@ -77,7 +77,7 @@ function App() {
           <Route
             exact
             path="/Query/:catId"
-            render={(props) => <Query {...props} />}
+            render={(props) => <Query {...props} sign={SignIn} />}
           />
           {/* <Route path="/sign"></Route> */}
           <Route path="/Home">

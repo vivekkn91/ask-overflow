@@ -9,7 +9,7 @@ import { FormControl, Button } from "react-bootstrap";
 export default class Home extends Component {
   constructor(props) {
     super(props);
-
+    console.log(props);
     this.state = {
       question: "",
       signer: true,
@@ -46,8 +46,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container search-box">
-        {console.log(this.state.signer)}
-        {this.state.signer ? (
+        {/* {console.log("this is the cheker")}
+        {console.log(this.state.signer)} */}
+        {this.props.sign ? (
           <InputGroup
             className="mb-3"
             onChange={this.question}

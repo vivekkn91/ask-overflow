@@ -59,6 +59,7 @@ export default class Query extends Component {
     return (
       <>
         <>
+          {console.log(this.props.sign)}
           {this.state.items.map((itm, k) => {
             return (
               <div key={k} className="Question-one">
@@ -67,29 +68,31 @@ export default class Query extends Component {
             );
           })}
         </>
-        <div className="container search-box">
-          <InputGroup
-            className="mb-3"
-            onChange={this.question}
-            value={this.state.ask}
-          >
-            <FormControl
-              placeholder="answer this question"
-              aria-label="answer this question"
-              aria-label="answer this question"
-              aria-describedby="basic-addon2"
-            />
-            <Button
-              type="submit"
-              disabled={!this.state.ask}
-              onClick={this.clickQuestion}
-              variant="outline-secondary"
-              id="button-addon2"
+        {this.props.sign ? null : (
+          <div className="container search-box">
+            <InputGroup
+              className="mb-3"
+              onChange={this.question}
+              value={this.state.ask}
             >
-              Answer
-            </Button>
-          </InputGroup>
-        </div>
+              <FormControl
+                placeholder="answer this question"
+                aria-label="answer this question"
+                aria-label="answer this question"
+                aria-describedby="basic-addon2"
+              />
+              <Button
+                type="submit"
+                disabled={!this.state.ask}
+                onClick={this.clickQuestion}
+                variant="outline-secondary"
+                id="button-addon2"
+              >
+                Answer
+              </Button>
+            </InputGroup>
+          </div>
+        )}
         <Answershooks />
       </>
     );
