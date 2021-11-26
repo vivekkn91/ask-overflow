@@ -68,7 +68,7 @@ export default class Query extends Component {
             );
           })}
         </>
-        {this.props.sign ? null : (
+        {this.props.sign ? (
           <div className="container search-box">
             <InputGroup
               className="mb-3"
@@ -92,7 +92,7 @@ export default class Query extends Component {
               </Button>
             </InputGroup>
           </div>
-        )}
+        ) : null}
         <Answershooks />
       </>
     );
