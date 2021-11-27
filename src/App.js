@@ -2,6 +2,8 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "react-bootstrap/Navbar";
 import Service from "./Service";
+import React from "react";
+import ReactDOM from "react-dom";
 import { firebase } from "./firebase";
 import Query from "./Query";
 import { LinkContainer } from "react-router-bootstrap";
@@ -13,12 +15,15 @@ import { Container } from "react-bootstrap";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 function App() {
   const [SignIn, setsignIn] = useState(true);
+  const [userNAme, setuserNAme] = useState([]);
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      console.log(user);
+      setuserNAme(user);
       return setsignIn(true);
     }
-    console.log(user);
+
     setsignIn(false);
   });
 
@@ -58,13 +63,16 @@ function App() {
             </Nav>
             {console.log(SignIn)}
             {SignIn ? (
-              <button
-                onClick={signout}
-                type="button"
-                class="btn btn-primary btn-sm"
-              >
-                signout
-              </button>
+              <>
+                <img src={userNAme.photoURL} alt="Avatar" className="avatar" />
+                <button
+                  onClick={signout}
+                  type="button"
+                  class="btn btn-primary btn-sm"
+                >
+                  {userNAme.displayName}
+                </button>
+              </>
             ) : (
               <Signin className="googlebutton" />
             )}
@@ -77,14 +85,16 @@ function App() {
           <Route
             exact
             path="/Query/:catId"
-            render={(props) => <Query {...props} sign={SignIn} />}
+            render={(props) => (
+              <Query {...props} sign={userNAme} hide={SignIn} />
+            )}
           />
           {/* <Route path="/sign"></Route> */}
           <Route path="/Home">
-            <Home sign={SignIn} />
+            <Home sign={userNAme} hide={SignIn} />
           </Route>
           <Route path="/">
-            <Home sign={SignIn} />
+            <Home sign={userNAme} hide={SignIn} />
           </Route>
         </Switch>
       </Router>

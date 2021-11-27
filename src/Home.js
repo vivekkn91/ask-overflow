@@ -23,20 +23,20 @@ export default class Home extends Component {
   };
   clickQuestion = (e) => {
     e.preventDefault();
+    let username = this.props.displayName;
     let arrayForQuestion = this.state.questionarray;
     let variableQuestion = this.state.question;
 
     this.setState({ arrayForQuestion: variableQuestion });
     var data = variableQuestion;
-    // console.log(data);
+    console.log(username);
     axios
       .post("https://ask-over.herokuapp.com/questionpost", {
         Name: data,
-
-        // Age: "23",
+        // username: username,
       })
       .then(() => {
-        window.location.reload();
+        // window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
@@ -46,9 +46,9 @@ export default class Home extends Component {
   render() {
     return (
       <div className="container search-box">
-        {/* {console.log("this is the cheker")}
-        {console.log(this.state.signer)} */}
-        {this.props.sign ? (
+        {console.log("this is the cheker", this.props)}
+
+        {this.props.hide ? (
           <InputGroup
             className="mb-3"
             onChange={this.question}

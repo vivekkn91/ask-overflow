@@ -59,7 +59,7 @@ export default class Query extends Component {
     return (
       <>
         <>
-          {console.log(this.props.sign)}
+          {console.log(this.props.hide)}
           {this.state.items.map((itm, k) => {
             return (
               <div key={k} className="Question-one">
@@ -68,7 +68,7 @@ export default class Query extends Component {
             );
           })}
         </>
-        {this.props.sign ? (
+        {this.props.hide ? (
           <div className="container search-box">
             <InputGroup
               className="mb-3"
