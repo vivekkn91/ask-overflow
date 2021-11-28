@@ -59,12 +59,15 @@ export default class Query extends Component {
     return (
       <>
         <>
-          {console.log(this.props.hide)}
+          {console.log(this.state.items.username)}
           {this.state.items.map((itm, k) => {
             return (
-              <div key={k} className="Question-one">
-                {itm.Name}
-              </div>
+              <>
+                <div key={k} className="Question-one">
+                  {itm.Name}
+                </div>
+                <span>{itm.username}</span>
+              </>
             );
           })}
         </>

@@ -23,20 +23,21 @@ export default class Home extends Component {
   };
   clickQuestion = (e) => {
     e.preventDefault();
-    let username = this.props.displayName;
+    // let username = this.props.displayName;
     let arrayForQuestion = this.state.questionarray;
     let variableQuestion = this.state.question;
 
     this.setState({ arrayForQuestion: variableQuestion });
     var data = variableQuestion;
-    console.log(username);
+    console.log(this.props.sign.displayName);
     axios
       .post("https://ask-over.herokuapp.com/questionpost", {
         Name: data,
-        // username: username,
+        username: this.props.sign.displayName,
+        useremail: this.props.sign.email,
       })
       .then(() => {
-        // window.location.reload();
+        window.location.reload();
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
