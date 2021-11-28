@@ -13,6 +13,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
+    document.title = "home";
     axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
       // console.table(result.data);
       this.setState({ items: result.data });

@@ -21,7 +21,8 @@ export default class Query extends Component {
     axios
       .get("https://ask-over.herokuapp.com/questone/" + gotid)
       .then((result) => {
-        //console.log(result);
+        console.log(result);
+        document.title = result.data[0].Name;
         this.setState({ items: result.data });
       });
     //  console.table(this.state.items);
