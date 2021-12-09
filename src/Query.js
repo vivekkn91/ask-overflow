@@ -3,7 +3,7 @@ import "./Query.css";
 import { FormControl, Button } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import Answershooks from "./Answershooks";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import axios from "axios";
 export default class Query extends Component {
   constructor(props) {
@@ -74,9 +74,10 @@ export default class Query extends Component {
                   <title> {itm.Name}</title>
                   <meta name="description" content={itm.Name} />
                   <meta property="og:type" content="article" />
+                  <link rel="canonical" href={itm.Name} />
                 </Helmet>
                 <div key={k} className="Question-one">
-                  {itm.Name}
+                  <h2> {itm.Name}</h2>
                 </div>
                 <div className="username">
                   <span className="username2">--{itm.username}</span>

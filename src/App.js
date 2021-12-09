@@ -48,7 +48,7 @@ function App() {
           <Container>
             <LinkContainer to="/">
               <Navbar.Brand to="/">
-                <p className="logomain">wixten</p>
+                <h1 className="logomain">wixten</h1>
               </Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto">

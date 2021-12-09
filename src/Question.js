@@ -3,7 +3,7 @@ import Alert from "react-bootstrap/Alert";
 //import Query from "./Query";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import Signin from "./signin";
 export default class Question extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
-    document.title = "wixten";
+    // document.title = "wixten";
     axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
       // console.table(result.data);
       this.setState({ items: result.data });
