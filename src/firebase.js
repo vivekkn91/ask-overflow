@@ -1,7 +1,8 @@
 import firebase from "firebase";
 const firebaseConfig = {
   apiKey: "AIzaSyB0ktWLQzdiaCikCyQ16NWxcZSifGji-_Q",
-  authDomain: "askover.firebaseapp.com",
+  // authDomain: "askover.firebaseapp.com",
+  authDomain: "wixten.com",
   projectId: "askover",
   storageBucket: "askover.appspot.com",
   messagingSenderId: "50529572214",

@@ -47,19 +47,21 @@ function App() {
         <Navbar bg="primary" variant="dark">
           <Container>
             <LinkContainer to="/">
-              <Navbar.Brand to="/">ask-over</Navbar.Brand>
+              <Navbar.Brand to="/">
+                <p className="logomain">wixten</p>
+              </Navbar.Brand>
             </LinkContainer>
             <Nav className="me-auto">
-              <LinkContainer to="/">
+              {/* <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
-              </LinkContainer>
-              <LinkContainer to="/Query">
+              </LinkContainer> */}
+              {/* <LinkContainer to="/Query">
                 <Nav.Link>Query</Nav.Link>
               </LinkContainer>
 
               <LinkContainer to="/Service">
                 <Nav.Link>Service</Nav.Link>
-              </LinkContainer>
+              </LinkContainer> */}
             </Nav>
             {console.log(SignIn)}
             {SignIn ? (

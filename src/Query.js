@@ -3,6 +3,7 @@ import "./Query.css";
 import { FormControl, Button } from "react-bootstrap";
 import InputGroup from "react-bootstrap/InputGroup";
 import Answershooks from "./Answershooks";
+import { Helmet } from "react-helmet";
 import axios from "axios";
 export default class Query extends Component {
   constructor(props) {
@@ -49,6 +50,10 @@ export default class Query extends Component {
         question_id: gotid,
       })
       .then(() => {
+        this.setState((prevState) => ({
+          ...prevState,
+          reloadAnswer: !prevState.reloadAnswer,
+        }));
         // window.location.reload();
       })
       .catch((error) => {
@@ -64,10 +69,18 @@ export default class Query extends Component {
           {this.state.items.map((itm, k) => {
             return (
               <>
+                <Helmet>
+                  <meta charSet="utf-8" />
+                  <title> {itm.Name}</title>
+                  <meta name="description" content={itm.Name} />
+                  <meta property="og:type" content="article" />
+                </Helmet>
                 <div key={k} className="Question-one">
                   {itm.Name}
                 </div>
-                <span>{itm.username}</span>
+                <div className="username">
+                  <span className="username2">--{itm.username}</span>
+                </div>
               </>
             );
           })}
@@ -97,7 +110,7 @@ export default class Query extends Component {
             </InputGroup>
           </div>
         ) : null}
-        <Answershooks />
+        <Answershooks reloadAnswer={this.state.reloadAnswer} />
       </>
     );
   }

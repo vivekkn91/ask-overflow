@@ -77,6 +77,22 @@ a {
   height: 50px;
   border-radius: 50%;
 }
+.username {
+  text-align: end;
+  height: 50px;
+  background-color: #e5d549;
+}
+.username2 {
+  margin: auto 10px;
+}
+.logomain {
+  margin: auto !important;
+}
+@media only screen and (min-width: 600px) {
+  .buttontwo {
+    display: flex;
+  }
+}
 @media only screen and (max-width: 600px) {
   .buttontwo {
     display: flex;

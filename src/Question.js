@@ -3,6 +3,7 @@ import Alert from "react-bootstrap/Alert";
 //import Query from "./Query";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import Signin from "./signin";
 export default class Question extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ export default class Question extends Component {
   }
 
   componentDidMount() {
-    document.title = "home";
+    document.title = "wixten";
     axios.get("https://ask-over.herokuapp.com/questapi").then((result) => {
       // console.table(result.data);
       this.setState({ items: result.data });
@@ -23,6 +24,12 @@ export default class Question extends Component {
   render() {
     return (
       <>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title> wixten</title>
+          <meta name="description" content="wixten" />
+          <meta property="og:type" content="article" />
+        </Helmet>
         {this.state.items.map((itm, k) => {
           return (
             <div className="Question-even">

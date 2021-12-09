@@ -5,20 +5,23 @@ import { useState, useEffect } from "react";
 import { FormControl, Button } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 
-export default function Answershooks() {
+export default function Answershooks(props) {
   const [posts, setPosts] = useState([]);
   const [increment, setincrement] = useState(0);
+  const [reloader, setreloder] = useState(props.reloadAnswer);
   //const [decrement, setdecrement] = useState(0);
   const params = useParams();
 
   var gotid = params;
   gotid = gotid.catId;
-  // console.log(gotid);
+
+  console.log(props.reloadAnswer);
+  // const Answer = ({ reloadAnswer }) => {
   useEffect(() => {
     axios
       .get("https://ask-over.herokuapp.com/answersapi/" + gotid)
       .then((result) => {
-        // console.table(result.data);
+        console.table(result.data);
         var somevariable = result;
 
         setPosts((data) => {
@@ -27,7 +30,8 @@ export default function Answershooks() {
 
         setPosts(result.data);
       });
-  }, []);
+  }, [increment]);
+  // };
 
   function decrementCounter(props) {
     console.log("thsis", props);
@@ -38,7 +42,7 @@ export default function Answershooks() {
         wrongcount: props.wrongcount,
       })
       .then(() => {
-        // window.location.reload();
+        setincrement(increment + 1);
       })
       .catch((error) => {
         console.log("handlesubmit error for blog ", error);
@@ -54,6 +58,7 @@ export default function Answershooks() {
         correctcount: props.correctcount,
       })
       .then((res) => {
+        setincrement(increment + 1);
         // setincrement([...increment,res.data])
         // window.location.reload();
       })
